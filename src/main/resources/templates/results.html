@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Search Results</title>
+</head>
+<body>
+<h1>Search Results</h1>
+<a href="/add">Add a Course</a><br />
+<a href="/search">Search Courses</a><br />
+
+<!-- The Thymeleaf if construct for a simple, compact way to display results -->
+<div th:if="${counter}>0">
+    <p th:inline="text">The instructor [[${instructor}]] teaches [[${counter}]] courses.</p>
+</div>
+
+<!-- The Thymeleaf switch construct for an elegant way to handle various options -->
+<div th:switch="${counter}">
+    <span th:case="'0'">[[${instructor}]] does not teach any courses.</span>
+    <div th:case="'1'">
+        The instructor [[${instructor}]] teaches one course.
+    </div>
+    <div th:case="*">
+        <p th:inline="text">The instructor [[${instructor}]] teaches [[${counter}]] courses.</p>
+    </div>
+</div>
+</body>
+</html>

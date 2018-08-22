@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Search Form</title>
+</head>
+<body>
+<h1>Search Form</h1>
+
+<p>Find by Title (exact match):</p>
+<form th:action="@{/findbytitle}" method="post">
+    <input type="text" name="title" id="title" /><input type="submit" value="Search"/>
+</form>
+<br/>
+<p>Find all courses with title containing:</p>
+<form th:action="@{/findbytitlecontaining}" method="post">
+    <input type="text" name="partialtitle" id="partialtitle" /><input type="submit" value="Search"/>
+</form>
+<br/>
+<p>Find all courses by number of credits:</p>
+<form th:action="@{/findbycredits}" method="post">
+    <input type="text" name="credits" id="credits" /><input type="submit" value="Search"/>
+</form>
+<br/>
+<p>Find all courses within a range of credits:</p>
+<form th:action="@{/findbycreditsbetween}" method="post">
+    <input type="text" name="credits_min" id="credits_min" /> and
+    <input type="text" name="credits_max" id="credits_max" />
+    <input type="submit" value="Search"/>
+</form>
+<br/>
+<p>Count courses by instructor:</p>
+<form th:action="@{/countbyinstructor}" method="post">
+    <input type="text" name="instructor" id="instructor" /><input type="submit" value="Search"/>
+</form>
+</body>
+</html>
